@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Modal, Image, Button, TextInput, FlatList } from 'react-native';
+import { StyleSheet, View, Text, TextInput, FlatList, TouchableHighlight } from 'react-native';
 
-const ab = [
+const userQueries = [
   {
-    "userId": 1,
-    "id": 1,
-    "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-    "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    "title": "What are the best product offers?"
   },
   {
-    "userId": 1,
-    "id": 2,
-    "title": "qui est esse",
-    "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+    "title": "What are the new product features?"
+  },
+  {
+    "title": "Does this product come with warranty?"
+  },
+  {
+    "title": "Product details?"
   }
 ]
 
@@ -21,27 +21,9 @@ class SmartGuidance extends Component {
     super(props);
     //setting default state
     this.state = { isLoading: false, text: '', display: "none", borderWidth: 0};
-    this.arrayholder = ab;
+    this.arrayholder = userQueries;
   }
  
-  // componentDidMount() {
-  //   return fetch('https://jsonplaceholder.typicode.com/posts')
-  //     .then(response => response.json())
-  //     .then(responseJson => {
-  //       this.setState(
-  //         {
-  //           isLoading: false,
-  //           dataSource: responseJson
-  //         },
-  //         function() 
-  //           this.arrayholder = responseJson;
-  //         }
-  //       );
-  //     })
-  //     .catch(error => {
-  //       console.error(error);
-  //     });
-  // }
   SearchFilterFunction(text) {
     //passing the inserted text in textinput
     const newData = this.arrayholder.filter(function(item) {
@@ -72,7 +54,7 @@ class SmartGuidance extends Component {
       <View
         style={{
           height: 0.3,
-          width: '90%',
+          width: '100%',
           backgroundColor: '#080808',
         }}
       />
@@ -106,10 +88,12 @@ class SmartGuidance extends Component {
             data={this.state.dataSource}
             ItemSeparatorComponent={this.ListViewItemSeparator}
             renderItem={({ item }) => (
-              <Text onPress={(item) => alert('item clicked ' + item.id)} style={styles.textStyle}>{item.title}</Text>
+              <TouchableHighlight>
+                <Text style={styles.textStyle}>{item.title}</Text>
+              </TouchableHighlight>
             )}
             enableEmptySections={true}
-            style={{ display: listDisplay, height : 200, borderColor: "black" }}
+            style={{ display: listDisplay, height: 200, borderColor: "black" }}
             keyExtractor={(item, index) => index.toString()}
           />
         </View>
@@ -120,8 +104,11 @@ class SmartGuidance extends Component {
 
 const styles = StyleSheet.create({
   searchListResults: {
-    borderWidth: 1,
-    borderColor: "red",
+    borderTopWidth: 0,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: "#E59D52",
   },
   searchWidgetTitle: {
     fontWeight: "bold",
@@ -140,10 +127,14 @@ const styles = StyleSheet.create({
   },
   textInputStyle: {
     height: 40,
-    borderWidth: 1,
+    borderTopWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderBottomWidth: 0.5,
     paddingLeft: 10,
-    borderColor: '#009688',
+    borderColor: "#e59D52",
     backgroundColor: '#FFFFFF',
+    borderRadius: 4
   },
 });
 
