@@ -110,7 +110,7 @@ class SmartGuidance extends Component {
             )}
             enableEmptySections={true}
             style={{ display: listDisplay, height : 200, borderColor: "black" }}
-            keyExtractor={(item, index) => index}
+            keyExtractor={(item, index) => index.toString()}
           />
         </View>
       </View>
