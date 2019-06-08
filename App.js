@@ -12,7 +12,7 @@ export default class App extends Component {
 			<View style={styles.container}>
       	<SmartGuidance />
 				<SmartGuidanceWidgetHeader label="Top Questions" />
-				<Accordian rightIcon={"./assets/chevron-down.png"} accordianLabel = "Is this a smart TV"/>
+				<Accordian accordianLabel = "Is this a smart TV"/>
 			</View>
     );
   }

@@ -1,32 +1,49 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image} from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 
-const Accordian = (props) => {
-  return (
-    <View style={styles.a}>
-      <Text style={styles.accordianLabelColor}>{props.accordianLabel}</Text>
-      <Image source={require(props.rightIcon)} style={styles.iconImage}/>
-    </View>
-  );
-}
+export default class Accordian extends Component {
+  const Accordian = (props) => {
+    state = { 
+      expanded: false,
+    };
 
-const styles = StyleSheet.create({
-  a: {
-    marginLeft: 15,
-    marginRight: 15,
-    paddingLeft: 10,
-    height: 40,
-    justifyContent: 'center',
-    borderBottomWidth: 1
-  },
-  accordianLabelColor: {
-    color: "black",
-    fontWeight: "bold"
-  },
-  iconImage:{
-    width: 100,
-    height: 100
+    accordianHandler = () => {
+      this.setState({expanded : !this.state.expanded});
+    };
+
+    return (
+      <View style={styles.accordianCell}>
+        <TouchableOpacity onPress={() => this.accordianHandler()}>
+          <Text style={styles.accordianLabelText}>{props.accordianLabel}</Text>
+          <Image source={require("../../assets/chevron-down.png")} style={styles.iconImage}/>
+        </TouchableOpacity>
+      
+      </View>
+    );
   }
-});
+
+  const styles = StyleSheet.create({
+    accordianCell: {
+      display: "flex",
+      flexDirection: "column",
+      marginLeft: 15,
+      marginRight: 15,
+      marginTop: 20,
+      paddingLeft: 10,
+      height: 40,
+      borderBottomWidth: 1,
+      borderColor: "#979797",
+      height: 30
+    },
+    accordianLabelText: {
+      color: "black"
+    },
+    iconImage:{
+      marginRight: 10,
+      marginTop: -10,
+      marginLeft: "auto"
+    }
+  });
+}
 
 export default Accordian;

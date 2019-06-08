@@ -37,7 +37,7 @@ class SmartGuidance extends Component {
       //After setting the data it will automatically re-render the view
       dataSource: newData,
       text: text,
-      display: "block",
+      display: "inline-block",
     });
 
     if (text === "") {
