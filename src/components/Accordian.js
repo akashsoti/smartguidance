@@ -44,7 +44,8 @@ const styles = StyleSheet.create({
 	separator:{
 		borderWidth: 0.4,
 		borderColor: "#d3d3d3",
-		width: "100%"
+		width: "91%",
+		marginLeft: 16,
 	},
 	row:{
 		flexDirection: 'row',

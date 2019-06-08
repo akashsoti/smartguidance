@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TextInput, FlatList, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, Text, TextInput, FlatList, TouchableOpacity } from 'react-native';
 
 const userQueries = [
   {
@@ -20,7 +20,7 @@ class SmartGuidance extends Component {
   constructor(props) {
     super(props);
     //setting default state
-    this.state = { isLoading: false, text: '', display: "none", borderWidth: 0};
+    this.state = { isLoading: false, text: '', adisplay: "none", borderWidth: 0};
     this.arrayholder = userQueries;
   }
  
@@ -37,12 +37,12 @@ class SmartGuidance extends Component {
       //After setting the data it will automatically re-render the view
       dataSource: newData,
       text: text,
-      display: "inline-block",
+      adisplay: "inline-block",
     });
 
     if (text === "") {
       this.setState({
-        display: "none",
+        adisplay: "none",
         borderWidth: 0,
       });
     }
@@ -70,7 +70,7 @@ class SmartGuidance extends Component {
       );
     }
 
-    const listDisplay = this.state.display;
+    const listDisplay = this.state.adisplay;
 
     return (
       //ListView to show with textinput used as search bar
@@ -88,12 +88,12 @@ class SmartGuidance extends Component {
             data={this.state.dataSource}
             ItemSeparatorComponent={this.ListViewItemSeparator}
             renderItem={({ item }) => (
-              <TouchableHighlight>
+              <TouchableOpacity>
                 <Text style={styles.textStyle}>{item.title}</Text>
-              </TouchableHighlight>
+              </TouchableOpacity>
             )}
             enableEmptySections={true}
-            style={{ display: listDisplay, height: 200, borderColor: "black" }}
+            style={{ display: listDisplay, height: 120, borderColor: "black" }}
             keyExtractor={(item, index) => index.toString()}
           />
         </View>
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderBottomWidth: 1,
     borderColor: "#E59D52",
-    position: "relative",
+    marginTop: -1.2,
   },
   searchWidgetTitle: {
     fontWeight: "bold",
