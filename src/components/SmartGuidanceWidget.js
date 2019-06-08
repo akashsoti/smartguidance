@@ -109,11 +109,12 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderBottomWidth: 1,
     borderColor: "#E59D52",
+    position: "relative",
   },
   searchWidgetTitle: {
     fontWeight: "bold",
     fontSize: 18,
-    marginTop: 10,
+    marginTop: 10, 
     marginBottom: 10,
     borderColor: "#e59D52",
   },
