@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
 	separator:{
 		borderWidth: 0.4,
 		borderColor: "#d3d3d3",
-		width: "91%",
+		width: "92%",
 		marginLeft: 16,
 	},
 	row:{

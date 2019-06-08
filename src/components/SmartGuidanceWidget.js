@@ -93,7 +93,7 @@ class SmartGuidance extends Component {
               </TouchableOpacity>
             )}
             enableEmptySections={true}
-            style={{ display: listDisplay, height: 120, borderColor: "black" }}
+            style={{ display: listDisplay, height: 120, borderColor: "#E59D52", borderBottomWidth: 1, }}
             keyExtractor={(item, index) => index.toString()}
           />
         </View>
@@ -107,9 +107,9 @@ const styles = StyleSheet.create({
     borderTopWidth: 0,
     borderLeftWidth: 1,
     borderRightWidth: 1,
-    borderBottomWidth: 1,
     borderColor: "#E59D52",
-    marginTop: -1.2,
+    marginTop: -1.7,
+    width: "100%"
   },
   searchWidgetTitle: {
     fontWeight: "bold",

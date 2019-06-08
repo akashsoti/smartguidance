@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import SmartGuidance from "./src/components/SmartGuidanceWidget";
 import SmartGuidanceWidgetHeader from "./src/components/SmartGuidanceWidgetHeader";
 import Accordian from "./src/components/Accordian"; 
-import {Text, StyleSheet, View, FlatList, TextInput, ActivityIndicator, Alert} from 'react-native';
+import {Text, StyleSheet, View, FlatList, TextInput, ActivityIndicator, Alert, Image} from 'react-native';
 
 export default class App extends Component {
   constructor(props) {
@@ -35,8 +35,11 @@ export default class App extends Component {
 			<View style={styles.container}>
       	<SmartGuidance />
 				<SmartGuidanceWidgetHeader label="Top Questions" />
-        <View style={styles.container}>
+        <View style={{position: "relative"}}>
           { this.renderAccordians() }
+        </View>
+        <View style={{alignItems: "center", marginTop: 20}}>
+          <Image source={require("./assets/talkButton.png")}/>
         </View>
 			</View>
     );
@@ -58,6 +61,7 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1
+    flex: 1,
+    flexDirection: "column"
 	}
 });
