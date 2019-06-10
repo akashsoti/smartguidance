@@ -6,11 +6,11 @@ class ModalTalk extends Component {
   render() {
     return (
       <View style={{marginTop: 22}}>
-        <Modal animationType="slide" transparent={false} visible={this.props.isModalVisible} onRequestClose={() => {Alert.alert('Modal has been closed.');}}>
+        <Modal animationType="slide" transparent={false} visible={this.props.isModalVisible} onRequestClose={() => {alert('Modal has been closed.');}}>
           <View style={{marginTop: 22}}>
             <View>
               <Text>Hello World!</Text>
-              <TouchableHighlight>
+              <TouchableHighlight onPress={this.props.isItClosed}>
                 <Text>Hide Modal</Text>
               </TouchableHighlight>
             </View>

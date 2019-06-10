@@ -36,6 +36,10 @@ export default class App extends Component {
     this.setState({modalVisible: visible});
   }
 
+  setModalClosed=()=>{
+    this.setState({modalVisible: false});
+  }
+
   render() {
     return (
 			<View style={styles.container}>
@@ -49,7 +53,7 @@ export default class App extends Component {
             <Image source={require("./assets/talkButton.png")}/>
           </View>
         </TouchableHighlight>
-        <ModalTalk isModalVisible={this.state.modalVisible} />
+        <ModalTalk isModalVisible={this.state.modalVisible} isItClosed={this.setModalClosed}></ModalTalk>
 			</View>
     );
   }
