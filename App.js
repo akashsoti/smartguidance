@@ -5,7 +5,7 @@ import SmartGuidance from "./src/components/SmartGuidanceWidget";
 import SmartGuidanceWidgetHeader from "./src/components/SmartGuidanceWidgetHeader";
 import Accordian from "./src/components/Accordian";
 import ModalTalk from "./src/components/ModalTalk"; 
-import {Text, StyleSheet, View, FlatList, TextInput, ActivityIndicator, Alert, Image, TouchableHighlight} from 'react-native';
+import {Text, StyleSheet, View, FlatList, TextInput, ActivityIndicator, Alert, Image, TouchableOpacity} from 'react-native';
 
 export default class App extends Component {
   constructor(props) {
@@ -48,11 +48,11 @@ export default class App extends Component {
         <View style={{position: "relative"}}>
           { this.renderAccordians() }
         </View>
-        <TouchableHighlight onPress={() => {this.setModalVisible(true);}}>
+        <TouchableOpacity onPress={() => {this.setModalVisible(true);}}>
           <View style={{alignItems: "center", marginTop: 20}}>
             <Image source={require("./assets/talkButton.png")}/>
           </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
         <ModalTalk isModalVisible={this.state.modalVisible} isItClosed={this.setModalClosed}></ModalTalk>
 			</View>
     );
