@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Modal, Text, TouchableOpacity, View, Alert, StyleSheet} from 'react-native';
+import Icon from "react-native-vector-icons/MaterialIcons";
+import {Modal, Text, TouchableOpacity, View, Alert, StyleSheet, TextInput, KeyboardAvoidingView} from 'react-native';
 
 class ModalTalk extends Component {
 
@@ -7,16 +8,17 @@ class ModalTalk extends Component {
     return (
       <View>
         <Modal animationType="slide" transparent={true} visible={this.props.isModalVisible} onRequestClose={() => {alert('Modal has been closed.');}}>
-          <View style={styles.modalOverlay}>
-            <TouchableOpacity onPress={this.props.isItClosed}>
-              <Text>Hide Modal</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={{height: 400, backgroundColor: "red"}}>
-            <View>
-              <Text style={styles.modalHeader}>Our Executive will call you back</Text>
+          <KeyboardAvoidingView style={{flex:1}} behavior="padding" enabled>
+            <View style={styles.modalOverlay}>
+              <TouchableOpacity onPress={this.props.isItClosed}>
+                <Icon name={"close"} size={30} color={"white"} />
+              </TouchableOpacity>
             </View>
-          </View>
+            <View style={styles.modalStyle}>
+              <Text style={styles.modalHeader}>Our Executive will call you back</Text>
+              <TextInput keyboardType='numeric' style={styles.textInputStyle} placeholder={"999-xxx-6754"}></TextInput>
+            </View>
+          </KeyboardAvoidingView>
         </Modal>
       </View>
     );
@@ -33,8 +35,24 @@ const styles = StyleSheet.create({
   },
 	modalHeader: {
     fontSize: 18,
-    fontWeight: "bold"
-	}
+    fontWeight: "bold",
+    padding: 20
+  },
+  modalStyle: {
+    height: 248,
+    backgroundColor: "white"
+  },
+  textInputStyle: {
+    height: 47,
+    borderWidth: 1,
+    paddingLeft: 10,
+    borderColor: "#949494",
+    backgroundColor: '#FFFFFF',
+    borderRadius: 4,
+    width: "88%",
+    alignItems: "center",
+    marginLeft: 20
+  },
 });
 
 export default ModalTalk;

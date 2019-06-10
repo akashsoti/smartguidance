@@ -43,6 +43,7 @@ export default class App extends Component {
   render() {
     return (
 			<View style={styles.container}>
+        <Image style={{marginLeft: -30}} source={require("./assets/topNav.png")}/>
       	<SmartGuidance />
 				<SmartGuidanceWidgetHeader label="Top Questions" />
         <View style={{position: "relative"}}>
